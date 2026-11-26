@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pasaporte Gallo Pinto</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+    <script src="js/storage.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="contenedor header-centro">
+        <h1>Pasaporte Gallo Pinto</h1>
+        <p>Ruta de Trueno por las siete provincias</p>
+      </div>
+    </header>
+
+    <main class="contenedor layout">
+      <section class="panel" aria-labelledby="titulo-registro">
+        <h2 id="titulo-registro">Registrar visita</h2>
+        <form id="form-visita" novalidate>
+          <div class="campo">
+            <label for="soda">Nombre de la soda</label>
+            <input type="text" id="soda" name="soda" placeholder="Ej. Soda Doña Ana" />
+            <p class="error" id="error-soda"></p>
+          </div>
+
+          <div class="campo">
+            <label for="provincia">Provincia</label>
+            <select id="provincia" name="provincia">
+              <option value="">Elegí una provincia</option>
+              <option value="San José">San José</option>
+              <option value="Alajuela">Alajuela</option>
+              <option value="Cartago">Cartago</option>
+              <option value="Heredia">Heredia</option>
+              <option value="Guanacaste">Guanacaste</option>
+              <option value="Puntarenas">Puntarenas</option>
+              <option value="Limón">Limón</option>
+            </select>
+            <p class="error" id="error-provincia"></p>
+          </div>
+
+          <div class="campo">
+            <label for="plato">Plato que pidió</label>
+            <input type="text" id="plato" name="plato" placeholder="Ej. Casado con pescado" />
+            <p class="error" id="error-plato"></p>
+          </div>
+
+          <fieldset id="calificacion" class="campo">
+            <legend>Calificación (1 a 5)</legend>
+            <div class="radios">
+              <label><input type="radio" name="calificacion" value="1" /> 1</label>
+              <label><input type="radio" name="calificacion" value="2" /> 2</label>
+              <label><input type="radio" name="calificacion" value="3" /> 3</label>
+              <label><input type="radio" name="calificacion" value="4" /> 4</label>
+              <label><input type="radio" name="calificacion" value="5" /> 5</label>
+            </div>
+            <p class="error" id="error-calificacion"></p>
+          </fieldset>
+
+          <div class="campo">
+            <label for="fecha">Fecha de la visita</label>
+            <input type="date" id="fecha" name="fecha" />
+            <p class="error" id="error-fecha"></p>
+          </div>
+
+          <div class="campo">
+            <label for="compa">Compa de viaje</label>
+            <select id="compa" name="compa" disabled>
+              <option value="">Cargando compas...</option>
+            </select>
+            <p class="error" id="estado-compas"></p>
+          </div>
+
+          <div class="campo">
+            <label for="volveria"><input type="checkbox" id="volveria" name="volveria" /> ¿Volvería?</label>
+          </div>
+
+          <button type="submit" class="btn btn-primario">Guardar visita</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="titulo-pasaporte">
+        <div class="cabecera-pasaporte">
+          <h2 id="titulo-pasaporte">Mi Pasaporte</h2>
+          <div class="campo">
+            <label for="filtro-provincia">Filtrar por provincia</label>
+            <select id="filtro-provincia" name="filtro-provincia">
+              <option value="Todas">Todas</option>
+              <option value="San José">San José</option>
+              <option value="Alajuela">Alajuela</option>
+              <option value="Cartago">Cartago</option>
+              <option value="Heredia">Heredia</option>
+              <option value="Guanacaste">Guanacaste</option>
+              <option value="Puntarenas">Puntarenas</option>
+              <option value="Limón">Limón</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="resumen">
+          <div><span>Sodas visitadas</span><strong id="total-visitas">0</strong></div>
+          <div><span>Promedio</span><strong id="promedio-calificacion">0.0</strong></div>
+          <div><span>Provincias selladas</span><strong id="provincias-selladas">0 de 7</strong></div>
+          <p class="completo oculto" id="mensaje-pasaporte-completo">
+            ¡Pasaporte Gallo Pinto completo! Trueno selló las 7 provincias.
+          </p>
+        </div>
+
+        <p class="vacio oculto" id="mensaje-vacio">No hay visitas registradas para mostrar.</p>
+        <div id="contenedor-tarjetas" class="tarjetas"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="contenedor">
+        <p>Pasaporte Gallo Pinto · Ruta de Trueno hacia 2031</p>
+      </div>
+    </footer>
+  </body>
+</html>
